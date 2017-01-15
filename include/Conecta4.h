@@ -28,6 +28,6 @@ class Conecta4{
    *  \param t tritupla que contiene el tablero a evaluar;
    *  \return puntuacion la puntuacion obtenida para el Tablero que contiene t
    */
-  int evalua(tritupla t);
+  int evalua(tritupla& t);
 }
 #endif
