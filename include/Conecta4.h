@@ -10,11 +10,10 @@ class Conecta4{
   //Almacena si un estado ha sido evaluado ya con la heuristica, su puntuacion y el tablero en si;
   struct tritupla{
     int puntuacion;
-    bool eval;
     Tablero t;
   }
   //Aquí da fallo porque creo que tritupla al estar definido en Conecta4 no puede ser ArbolGeneral.
-  ArbolGeneral<tritupla> states;
+  ArbolGeneral<Tablero> states;
   int profundidad;
   int turno;
 
@@ -24,7 +23,7 @@ class Conecta4{
    *  \param prof la profundidad que tendran los estados finales del arbol de estado (los nodos hoja)
    *  \param t el tablero a partir del cual se ramifica para los futuros estados
    */
-  int generaArbolEstados(int prof, Tablero t);			  
+  int generaArbolEstados();			  
  private:
   /**
    * @brief crea una partida de Conecta4 vacia;
