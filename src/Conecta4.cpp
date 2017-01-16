@@ -59,69 +59,70 @@ Tablero& Conecta4::siguienteMovimiento(ArbolGeneral<Tablero>& t){
 
 
     return bestMove; 
-
+  }
+}
 
 
 //--------------------------------------------------------------------------------
 //Funciones de ayda que no pertenecen a la clase
 //--------------------------------------------------------------------------------
 
-  int get3Horizontales(Tablero& t, int turno){
-    vector<vector<int> > tablero = t .getTablero();    
-    int ntreses;
+int get3Horizontales(Tablero& t, int turno){
+  vector<vector<int> > tablero = t .getTablero();    
+  int ntreses;
 
-    for (i = 0; i < tablero.size()-2; ++i) {
-      for (j; i < tablero.at(i).size(); ++j) {
+  for (i = 0; i < tablero.size()-2; ++i) {
+    for (j; i < tablero.at(i).size(); ++j) {
 
-	if(tablero[i][j] == turno && tablero[i+1][j] == turno && tablero[i+2][j] == turno)
-	  ntreses++;
-	//lleva if else if por que los doses no se suman si son treses
+      if(tablero[i][j] == turno && tablero[i+1][j] == turno && tablero[i+2][j] == turno)
+	ntreses++;
+      //lleva if else if por que los doses no se suman si son treses
 	
-      }
-    
     }
-
-    return ntreses;
+    
   }
 
-  int get2Horizontales(Tablero& t, int turno){
-    vector<vector<int> > tablero = t .getTablero();
-    int ndoses;
-    for (i = 0; i < tablero.size()-1; ++i) {
-      for (j; i < tablero.at(i).size(); ++j) {
-	if(tablero[i][j] == turno && tablero[i+1][j] == turno)
-	  ndoses++;
-      }
-    }
+  return ntreses;
+}
 
-    return ndoses;
+int get2Horizontales(Tablero& t, int turno){
+  vector<vector<int> > tablero = t .getTablero();
+  int ndoses;
+  for (i = 0; i < tablero.size()-1; ++i) {
+    for (j; i < tablero.at(i).size(); ++j) {
+      if(tablero[i][j] == turno && tablero[i+1][j] == turno)
+	ndoses++;
+    }
   }
+
+  return ndoses;
+}
     
 
-  int get2Verticales(Tablero& t, int turno){
-    vector<vector<int> > tablero = t .getTablero();
-    int ndoses;
+int get2Verticales(Tablero& t, int turno){
+  vector<vector<int> > tablero = t .getTablero();
+  int ndoses;
 
-    for (i = 0; i < tablero.size(); ++i) {
-      for (j; i < tablero.at(i).size()-1; ++j) {
-	//lleva if else if por que los doses no se suman si son treses
+  for (i = 0; i < tablero.size(); ++i) {
+    for (j; i < tablero.at(i).size()-1; ++j) {
+      //lleva if else if por que los doses no se suman si son treses
 	else if(tablero[i][j] == turno && tablero[i][j+1] == turno)
 	  ndoses++;
-      }
     }
-
-    return ndoses;
   }
 
-  int get3Verticales(Tablero& t, int turno){
-    vector<vector<int> > tablero = t .getTablero();
-    int ntreses;
-    for (i = 0; i < tablero.size(); ++i) {
-      for (j; i < tablero.at(i).size()-2; ++j) {
-	if(tablero[i][j] == turno && tablero[i][j+1] == turno && tablero[i][j+2] == turno)
-	  ntreses++;
-      }
-    }
+  return ndoses;
+}
 
-    return ntreses;
+int get3Verticales(Tablero& t, int turno){
+  vector<vector<int> > tablero = t .getTablero();
+  int ntreses;
+  for (i = 0; i < tablero.size(); ++i) {
+    for (j; i < tablero.at(i).size()-2; ++j) {
+      if(tablero[i][j] == turno && tablero[i][j+1] == turno && tablero[i][j+2] == turno)
+	ntreses++;
+    }
   }
+
+  return ntreses;
+}
