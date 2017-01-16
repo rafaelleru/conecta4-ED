@@ -15,7 +15,6 @@ all: $(BIN)/conecta4 $(BIN)/arboltablero_test
 documentacion:
 	doxygen doc/doxys/Doxyfile
 
-	
 # ************ Compilación de módulos ************
 $(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a 
 	$(CXX) -o $(BIN)/arboltablero_test $(OBJ)/arboltablero_test.o -I$(INC) -L$(LIB) -ltablero
