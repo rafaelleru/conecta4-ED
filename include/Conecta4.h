@@ -4,6 +4,7 @@
 #include "ArbolGeneral.h"
 #include "tablero.h"
 
+using namespace std;
 class Conecta4{
  public:
   //Almacena si un estado ha sido evaluado ya con la heuristica, su puntuacion y el tablero en si;
@@ -45,6 +46,6 @@ class Conecta4{
    *  \param n representa el estado a partir del cual jugamos
    *  \return tablero quecontiene el siguiente movimiento.
    */
-  Tablero& siguienteMovimiento(ArbolGeneral<Tablero> t);
+  Tablero& siguienteMovimiento(ArbolGeneral<Tablero>& t);
 }
 #endif

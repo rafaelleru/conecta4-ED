@@ -16,7 +16,7 @@ documentacion:
 	doxygen doc/doxys/Doxyfile
 
 # ************ Compilación de módulos ************
-$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a 
+$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a $(OBJ)/Conecta4.o
 	$(CXX) -o $(BIN)/arboltablero_test $(OBJ)/arboltablero_test.o -I$(INC) -L$(LIB) -ltablero
 
 $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
@@ -24,6 +24,10 @@ $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
 
 $(OBJ)/conecta4.o: $(SRC)/conecta4.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/conecta4.o $(SRC)/conecta4.cpp -I$(INC)
+
+$(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
+	echo "Creando Conecta4.o"
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/Conecta4.o $(SRC)/Conecta4.cpp -I$(INC)
 
 $(LIB)/libtablero.a: $(OBJ)/tablero.o
 	$(AR) $(LIB)/libtablero.a $(OBJ)/tablero.o
