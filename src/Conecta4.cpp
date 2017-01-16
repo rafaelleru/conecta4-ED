@@ -7,10 +7,10 @@ int Conecta4::evalua(Tablero& t){
   return 10;
 }
 
-void generaArbolEstados(int currentProf = 0, int prof = 2, ArbolGeneral<Tablero> t){
-  ArbolGeneral<Tablero>::nodo raiz = generados.getRaiz();
+void generaArbolEstados(int currentProf = 0, int prof = 2, ArbolGeneral<Tablero>& t){
+  ArbolGeneral<Tablero>::Nodo raiz = /*generados*/t.getRaiz();
   int nCol = t.getColumnas(); //Asignandolo aqui ahorramos multiples llamadas en el for.
-
+  Nodo  ultimoInsertado;
   //1ª version muy simple para generar el tablero.
   //quiza se pueda paralelizar con posix y hebras
   while(currentProf != prof){
@@ -21,13 +21,13 @@ void generaArbolEstados(int currentProf = 0, int prof = 2, ArbolGeneral<Tablero>
       //que se generen los hijos hasta la prof dada
       if(t.colocarFicha(i)){
 	if(!hijomasizquierda){
-	  ArbolGeneral<Tablero>::nodo insertado(t);
+	  ArbolGeneral<Tablero>::Nodo insertado(t);
 	  t.insertar_hijomasizquierda(insertado);
-	  ultimoInsertado = generados.hijomasizquierda;
+	  ultimoInsertado = t.hijomasizquierda;
 	  generaArbolEstados(currentProf+1, prof, ultimoInsertado);
 	  hijomasizquierda = true;
 	} else{
-	  ArbolGeneral<Tablero>::nodo insertado(t);
+	  ArbolGeneral<Tablero>::Nodo insertado(t);
 	  t.insertar_hermanoderecha(ultimoInsertado, insertado);
 	  ultimoInsertado = ultimoInsertado.hermanoderecha();
 	  generaArbolEstados(currentProf+1, prof, ultimoInsertado);
@@ -40,7 +40,7 @@ void generaArbolEstados(int currentProf = 0, int prof = 2, ArbolGeneral<Tablero>
 
 
 Tablero& Conecta4::siguienteMovimiento(ArbolGeneral<Tablero>& t){
-  ArbolGeneral<Tablero>::nodo raiz = t.getRaiz();
+  ArbolGeneral<Tablero>::Nodo raiz = t.getRaiz();
   int mejor;
   Tablero bestMove;
 
@@ -67,10 +67,10 @@ Tablero& Conecta4::siguienteMovimiento(ArbolGeneral<Tablero>& t){
 //--------------------------------------------------------------------------------
 
 int get3Horizontales(Tablero& t, int turno){
-  vector<vector<int> > tablero = t .GetTablero();    
+  vector<vector<int> > tablero = t.GetTablero();    
   int ntreses;
 
-  for (int i = 0; i < tablero.size()-2; ++i) {
+  for (unsigned int i = 0; i < tablero.size()-2; ++i) {
     for (int j; i < tablero.at(i).size(); ++j) {
 
       if(tablero[i][j] == turno && tablero[i+1][j] == turno && tablero[i+2][j] == turno)
@@ -85,9 +85,9 @@ int get3Horizontales(Tablero& t, int turno){
 }
 
 int get2Horizontales(Tablero& t, int turno){
-  vector<vector<int> > tablero = t .GetTablero();
+  vector<vector<int> > tablero = t.GetTablero();
   int ndoses;
-  for (int i = 0; i < tablero.size()-1; ++i) {
+  for (unsigned int i = 0; i < tablero.size()-1; ++i) {
     for (int j; i < tablero.at(i).size(); ++j) {
       if(tablero[i][j] == turno && tablero[i+1][j] == turno)
 	ndoses++;
@@ -99,10 +99,10 @@ int get2Horizontales(Tablero& t, int turno){
     
 
 int get2Verticales(Tablero& t, int turno){
-  vector<vector<int> > tablero = t .GetTablero();
+  vector<vector<int> > tablero = t.GetTablero();
   int ndoses;
 
-  for (int i = 0; i < tablero.size(); ++i) {
+  for (unsigned int i = 0; i < tablero.size(); ++i) {
     for (int j; i < tablero.at(i).size()-1; ++j) {
       //lleva if else if por que los doses no se suman si son treses
       if(tablero[i][j] == turno && tablero[i][j+1] == turno)
@@ -114,9 +114,9 @@ int get2Verticales(Tablero& t, int turno){
 }
 
 int get3Verticales(Tablero& t, int turno){
-  vector<vector<int> > tablero = t .GetTablero();
+  vector<vector<int> > tablero = t.GetTablero();
   int ntreses;
-  for (int i = 0; i < tablero.size(); ++i) {
+  for (unsigned int i = 0; i < tablero.size(); ++i) {
     for (int j; i < tablero.at(i).size()-2; ++j) {
       if(tablero[i][j] == turno && tablero[i][j+1] == turno && tablero[i][j+2] == turno)
 	ntreses++;

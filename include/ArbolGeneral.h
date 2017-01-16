@@ -1,6 +1,7 @@
 #ifndef __ArbolGeneral_h__
 #define __ArbolGeneral_h__
 
+#include <iostream>
 #include <cassert>
 #include <algorithm>
 #include <queue>
