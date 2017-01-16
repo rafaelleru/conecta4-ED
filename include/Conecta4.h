@@ -16,6 +16,7 @@ class Conecta4{
 
   ArbolGeneral<tritupla> states;
   int profundidad;
+  int turno;
 
   /**
    *  \brief genera los futuros estados para una profundida prof a partir del estado del tablero t
@@ -36,7 +37,7 @@ class Conecta4{
    *  \param t tritupla que contiene el tablero a evaluar;
    *  \return puntuacion la puntuacion obtenida para el Tablero que contiene t
    */
-  int evalua(tritupla& t);
+  int evalua(Tablero& t);
 
   /**
    *  \brief obtiene el siguiente mejor movimiento
