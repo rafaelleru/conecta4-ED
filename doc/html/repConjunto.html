@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CONECTA 4: Rep del TDA Arbol General</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CONECTA 4
+   &#160;<span id="projectnumber">V1.0</span>
+   </div>
+   <div id="projectbrief">CONECTA 4: Explorando el espacio de soluciones con Árboles</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Rep del TDA Arbol General </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="invConjunto"></a>
+Invariante de la representación</h1>
+<p>Sea <em>T</em> un Árbol General sobre el tipo <em>Tbase</em>. Entonces el invariante de la representación es</p>
+<p>Si <em>T</em> es vacío, entonces T.laraiz vale 0. Si no:</p><ul>
+<li>T.laraiz-&gt;padre = 0 y</li>
+<li><img class="formulaInl" alt="$ \forall $" src="form_1.png"/> n nodo de <em>T</em>, n-&gt;izqda <img class="formulaInl" alt="$ \neq $" src="form_2.png"/> n-&gt;drch y</li>
+<li><img class="formulaInl" alt="$ \forall $" src="form_1.png"/> n, m nodos de <em>T</em>, si n-&gt;izqda = m, entonces m-&gt;padre = n y</li>
+<li>Número de elementos = número elementos de la raiz, donde N(n) = 1 + N(n-&gt;izqda) + (N-&gt;drcha), con N(0) = 0.</li>
+</ul>
+<h1><a class="anchor" id="faConjunto"></a>
+Función de abstracción</h1>
+<p>Sea <em>T</em> un Árbol General sobre el tipo <em>Tbase</em>. Entonces, si lo denotamos también Árbol(T.laraiz), es decir, como el árbol que cuelga de su raíz, entonces este árbol del conjunto de valores en la representación se aplica al árbol.</p>
+<p>{ T.laraiz-&gt;etiqueta, {Arbol(T.laraiz-&gt;izqda)}, {Arbol(T.laraiz-&gt;drcha)} }</p>
+<p>donde {0} es el árbol vacío. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>

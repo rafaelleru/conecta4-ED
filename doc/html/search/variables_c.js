@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tablero',['tablero',['../classTablero.html#a5df607d108c0c0a14aa4f393b7f43030',1,'Tablero']]],
-  ['turno',['turno',['../classTablero.html#ae460b4a3245da075dd381365abf158bc',1,'Tablero']]]
+  ['states',['states',['../classConecta4.html#a4b4ec9e600e539e8f9863a978f45a95f',1,'Conecta4']]]
 ];

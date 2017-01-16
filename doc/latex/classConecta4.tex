@@ -1,0 +1,136 @@
+\hypertarget{classConecta4}{}\subsection{Referencia de la Clase Conecta4}
+\label{classConecta4}\index{Conecta4@{Conecta4}}
+
+
+{\ttfamily \#include $<$Conecta4.\+h$>$}
+
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structConecta4_1_1tritupla}{tritupla}
+\end{DoxyCompactItemize}
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classConecta4_ab72f5bb472cb8784cddb0b4b09c13dac}{genera\+Arbol\+Estados} (int prof, \hyperlink{classTablero}{Tablero} t)
+\begin{DoxyCompactList}\small\item\em genera los futuros estados para una profundida prof a partir del estado del tablero t \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structConecta4_1_1tritupla}{Conecta4\+::tritupla} \hyperlink{classConecta4_a4b4ec9e600e539e8f9863a978f45a95f}{states}
+\item 
+int \hyperlink{classConecta4_aabdb9394582c5f280d4a9c4593c53a9b}{profundidad}
+\item 
+int \hyperlink{classConecta4_aa26fd11095863677ff31ec9b5811fc09}{turno}
+\end{DoxyCompactItemize}
+\subsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classConecta4_a2bea867a7a92a7c9bd9e1a7f3fba7a9e}{Conecta4} (int p)
+\begin{DoxyCompactList}\small\item\em crea una partida de \hyperlink{classConecta4}{Conecta4} vacia; \end{DoxyCompactList}\item 
+int \hyperlink{classConecta4_acb02a160b22863c2f473b408328d9f7b}{evalua} (\hyperlink{classTablero}{Tablero} \&t)
+\begin{DoxyCompactList}\small\item\em devuelve la evaluacion del \hyperlink{classTablero}{Tablero} contenido en t \end{DoxyCompactList}\item 
+\hyperlink{classTablero}{Tablero} \& \hyperlink{classConecta4_ae9b5f7cbcb0dbaede77a49137d394c0f}{siguiente\+Movimiento} (\hyperlink{classArbolGeneral}{Arbol\+General}$<$ \hyperlink{classTablero}{Tablero} $>$ \&t)
+\begin{DoxyCompactList}\small\item\em obtiene el siguiente mejor movimiento \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Documentación del constructor y destructor}
+\hypertarget{classConecta4_a2bea867a7a92a7c9bd9e1a7f3fba7a9e}{}\label{classConecta4_a2bea867a7a92a7c9bd9e1a7f3fba7a9e} 
+\index{Conecta4@{Conecta4}!Conecta4@{Conecta4}}
+\index{Conecta4@{Conecta4}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{Conecta4()}{Conecta4()}}
+{\footnotesize\ttfamily Conecta4\+::\+Conecta4 (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+crea una partida de \hyperlink{classConecta4}{Conecta4} vacia; 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p} & la profundidad hasta la que se explorara el arbol; \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de las funciones miembro}
+\hypertarget{classConecta4_acb02a160b22863c2f473b408328d9f7b}{}\label{classConecta4_acb02a160b22863c2f473b408328d9f7b} 
+\index{Conecta4@{Conecta4}!evalua@{evalua}}
+\index{evalua@{evalua}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{evalua()}{evalua()}}
+{\footnotesize\ttfamily int Conecta4\+::evalua (\begin{DoxyParamCaption}\item[{\hyperlink{classTablero}{Tablero} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+devuelve la evaluacion del \hyperlink{classTablero}{Tablero} contenido en t 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & tritupla que contiene el tablero a evaluar; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+puntuacion la puntuacion obtenida para el \hyperlink{classTablero}{Tablero} que contiene t 
+\end{DoxyReturn}
+\hypertarget{classConecta4_ab72f5bb472cb8784cddb0b4b09c13dac}{}\label{classConecta4_ab72f5bb472cb8784cddb0b4b09c13dac} 
+\index{Conecta4@{Conecta4}!genera\+Arbol\+Estados@{genera\+Arbol\+Estados}}
+\index{genera\+Arbol\+Estados@{genera\+Arbol\+Estados}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{genera\+Arbol\+Estados()}{generaArbolEstados()}}
+{\footnotesize\ttfamily int Conecta4\+::genera\+Arbol\+Estados (\begin{DoxyParamCaption}\item[{int}]{prof,  }\item[{\hyperlink{classTablero}{Tablero}}]{t }\end{DoxyParamCaption})}
+
+
+
+genera los futuros estados para una profundida prof a partir del estado del tablero t 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em prof} & la profundidad que tendran los estados finales del arbol de estado (los nodos hoja) \\
+\hline
+{\em t} & el tablero a partir del cual se ramifica para los futuros estados \\
+\hline
+\end{DoxyParams}
+\hypertarget{classConecta4_ae9b5f7cbcb0dbaede77a49137d394c0f}{}\label{classConecta4_ae9b5f7cbcb0dbaede77a49137d394c0f} 
+\index{Conecta4@{Conecta4}!siguiente\+Movimiento@{siguiente\+Movimiento}}
+\index{siguiente\+Movimiento@{siguiente\+Movimiento}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{siguiente\+Movimiento()}{siguienteMovimiento()}}
+{\footnotesize\ttfamily \hyperlink{classTablero}{Tablero}\& Conecta4\+::siguiente\+Movimiento (\begin{DoxyParamCaption}\item[{\hyperlink{classArbolGeneral}{Arbol\+General}$<$ \hyperlink{classTablero}{Tablero} $>$ \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+obtiene el siguiente mejor movimiento 
+
+usamos anchura que garantiza la mejor solución.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & representa el estado a partir del cual jugamos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+tablero quecontiene el siguiente movimiento. 
+\end{DoxyReturn}
+
+
+\subsubsection{Documentación de los datos miembro}
+\hypertarget{classConecta4_aabdb9394582c5f280d4a9c4593c53a9b}{}\label{classConecta4_aabdb9394582c5f280d4a9c4593c53a9b} 
+\index{Conecta4@{Conecta4}!profundidad@{profundidad}}
+\index{profundidad@{profundidad}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{profundidad}{profundidad}}
+{\footnotesize\ttfamily int Conecta4\+::profundidad}
+
+\hypertarget{classConecta4_a4b4ec9e600e539e8f9863a978f45a95f}{}\label{classConecta4_a4b4ec9e600e539e8f9863a978f45a95f} 
+\index{Conecta4@{Conecta4}!states@{states}}
+\index{states@{states}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{states}{states}}
+{\footnotesize\ttfamily struct \hyperlink{structConecta4_1_1tritupla}{Conecta4\+::tritupla}  Conecta4\+::states}
+
+\hypertarget{classConecta4_aa26fd11095863677ff31ec9b5811fc09}{}\label{classConecta4_aa26fd11095863677ff31ec9b5811fc09} 
+\index{Conecta4@{Conecta4}!turno@{turno}}
+\index{turno@{turno}!Conecta4@{Conecta4}}
+\paragraph{\texorpdfstring{turno}{turno}}
+{\footnotesize\ttfamily int Conecta4\+::turno}
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Conecta4_8h}{Conecta4.\+h}\end{DoxyCompactItemize}

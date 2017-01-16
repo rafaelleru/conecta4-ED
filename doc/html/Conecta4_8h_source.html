@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CONECTA 4: Fichero Fuente include/Conecta4.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CONECTA 4
+   &#160;<span id="projectnumber">V1.0</span>
+   </div>
+   <div id="projectbrief">CONECTA 4: Explorando el espacio de soluciones con Árboles</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Conecta4.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Conecta4_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __Conecta_4__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __Conecta_4__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ArbolGeneral_8h.html">ArbolGeneral.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tablero_8h.html">tablero.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classConecta4.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConecta4.html">Conecta4</a>{</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="comment">//Almacena si un estado ha sido evaluado ya con la heuristica, su puntuacion y el tablero en si;</span></div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structConecta4_1_1tritupla.html">   11</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structConecta4_1_1tritupla.html">tritupla</a>{</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structConecta4_1_1tritupla.html#a79086d1d426fbee3dda5c807d279a776">   12</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structConecta4_1_1tritupla.html#a79086d1d426fbee3dda5c807d279a776">puntuacion</a>;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structConecta4_1_1tritupla.html#a8a9db3376aa2bdb5c8b9f31c89e119e9">   13</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structConecta4_1_1tritupla.html#a8a9db3376aa2bdb5c8b9f31c89e119e9">eval</a>;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structConecta4_1_1tritupla.html#a33cad8a0dc6bf63da02f04c429dd9ec2">   14</a></span>&#160;    <a class="code" href="classTablero.html">Tablero</a> <a class="code" href="structConecta4_1_1tritupla.html#a33cad8a0dc6bf63da02f04c429dd9ec2">t</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  }</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="comment">//Aquí da fallo porque creo que tritupla al estar definido en Conecta4 no puede ser ArbolGeneral.</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;tritupla&gt;</a> states;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classConecta4.html#aabdb9394582c5f280d4a9c4593c53a9b">   18</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classConecta4.html#aabdb9394582c5f280d4a9c4593c53a9b">profundidad</a>;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classConecta4.html#aa26fd11095863677ff31ec9b5811fc09">   19</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classConecta4.html#aa26fd11095863677ff31ec9b5811fc09">turno</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">int</span> generaArbolEstados(<span class="keywordtype">int</span> prof, <a class="code" href="classTablero.html">Tablero</a> t);            </div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keyword">private</span>:</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classConecta4.html">Conecta4</a>(<span class="keywordtype">int</span> p);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">int</span> evalua(<a class="code" href="classTablero.html">Tablero</a>&amp; t);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="classTablero.html">Tablero</a>&amp; siguienteMovimiento(<a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a>&amp; t);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classConecta4_html_aa26fd11095863677ff31ec9b5811fc09"><div class="ttname"><a href="classConecta4.html#aa26fd11095863677ff31ec9b5811fc09">Conecta4::turno</a></div><div class="ttdeci">int turno</div><div class="ttdef"><b>Definition:</b> Conecta4.h:19</div></div>
+<div class="ttc" id="structConecta4_1_1tritupla_html"><div class="ttname"><a href="structConecta4_1_1tritupla.html">Conecta4::tritupla</a></div><div class="ttdef"><b>Definition:</b> Conecta4.h:11</div></div>
+<div class="ttc" id="tablero_8h_html"><div class="ttname"><a href="tablero_8h.html">tablero.h</a></div></div>
+<div class="ttc" id="ArbolGeneral_8h_html"><div class="ttname"><a href="ArbolGeneral_8h.html">ArbolGeneral.h</a></div></div>
+<div class="ttc" id="structConecta4_1_1tritupla_html_a79086d1d426fbee3dda5c807d279a776"><div class="ttname"><a href="structConecta4_1_1tritupla.html#a79086d1d426fbee3dda5c807d279a776">Conecta4::tritupla::puntuacion</a></div><div class="ttdeci">int puntuacion</div><div class="ttdef"><b>Definition:</b> Conecta4.h:12</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classConecta4_html"><div class="ttname"><a href="classConecta4.html">Conecta4</a></div><div class="ttdef"><b>Definition:</b> Conecta4.h:8</div></div>
+<div class="ttc" id="structConecta4_1_1tritupla_html_a8a9db3376aa2bdb5c8b9f31c89e119e9"><div class="ttname"><a href="structConecta4_1_1tritupla.html#a8a9db3376aa2bdb5c8b9f31c89e119e9">Conecta4::tritupla::eval</a></div><div class="ttdeci">bool eval</div><div class="ttdef"><b>Definition:</b> Conecta4.h:13</div></div>
+<div class="ttc" id="classTablero_html"><div class="ttname"><a href="classTablero.html">Tablero</a></div><div class="ttdoc">T.D.A. Tablero. </div><div class="ttdef"><b>Definition:</b> tablero.h:54</div></div>
+<div class="ttc" id="classConecta4_html_aabdb9394582c5f280d4a9c4593c53a9b"><div class="ttname"><a href="classConecta4.html#aabdb9394582c5f280d4a9c4593c53a9b">Conecta4::profundidad</a></div><div class="ttdeci">int profundidad</div><div class="ttdef"><b>Definition:</b> Conecta4.h:18</div></div>
+<div class="ttc" id="classArbolGeneral_html"><div class="ttname"><a href="classArbolGeneral.html">ArbolGeneral</a></div><div class="ttdoc">T.D.A. ArbolGeneral. </div><div class="ttdef"><b>Definition:</b> ArbolGeneral.h:42</div></div>
+<div class="ttc" id="structConecta4_1_1tritupla_html_a33cad8a0dc6bf63da02f04c429dd9ec2"><div class="ttname"><a href="structConecta4_1_1tritupla.html#a33cad8a0dc6bf63da02f04c429dd9ec2">Conecta4::tritupla::t</a></div><div class="ttdeci">Tablero t</div><div class="ttdef"><b>Definition:</b> Conecta4.h:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>

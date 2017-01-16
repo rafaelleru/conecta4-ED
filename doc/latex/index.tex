@@ -19,7 +19,7 @@ Los requisitos para poder realizar esta práctica son\+:
 \item Haber estudiado estructuras de datos jerárquicas\+: Árboles
 \end{DoxyEnumerate}\hypertarget{index_objetivos}{}\subsection{Objetivos}\label{index_objetivos}
 El objetivo de esta práctica es llevar a cabo el análisis, diseño e implementación de un proyecto. Con tal fin, el estudiante abordará un problema donde se requieren estructuras de datos que permiten almacenar grandes volúmenes de datos y poder acceder a ellos de la forma más eficiente.\hypertarget{index_problema}{}\subsection{Problema}\label{index_problema}
-El estudiante debe implementar un programa que simule el juego \char`\"{}\+Conecta 4\char`\"{} \mbox{[}Conecta4\mbox{]}. El objetivo de Conecta 4 es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (por lo general, rojas o amarillas). En nuestro caso, las fichas de los jugadores se indicarán con los caracteres \char`\"{}\+X\char`\"{} y \char`\"{}\+O\char`\"{}. Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal. Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.
+El estudiante debe implementar un programa que simule el juego \char`\"{}\+Conecta 4\char`\"{} \mbox{[}\hyperlink{classConecta4}{Conecta4}\mbox{]}. El objetivo de Conecta 4 es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (por lo general, rojas o amarillas). En nuestro caso, las fichas de los jugadores se indicarán con los caracteres \char`\"{}\+X\char`\"{} y \char`\"{}\+O\char`\"{}. Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal. Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.
 
 El estudiante debe implementar una versión de este juego en el que los movimientos de uno de los jugadores se efectúan de forma automática. Esta modalidad, que llamaremos \char`\"{}\+Player V\+S. Computer\char`\"{} o \char`\"{}1 jugador automático\char`\"{}, requiere implementar un mecanismo de decisión automática basado en la disposición actual del tablero. Para implementar este mecanismo de decisión automática, debemos representar todos los posibles movimientos a partir del tablero actual y definir una \char`\"{}métrica\char`\"{} que nos permita \char`\"{}evaluar\char`\"{} cuál de los movimientos posibles deriva un tablero con más posibilidad de éxito para el jugador automático. Cuanto mejor sea esta métrica, más difícil será batir al jugador automático en una partida de Conecta 4.
 
@@ -28,7 +28,7 @@ Por ejemplo, la métrica más sencilla consistiría en evaluar si alguno de los 
 
 \begin{DoxyImage}
 \includegraphics[width=12cm]{connect4-tree}
-\caption{Estructura interna de un T\+DA Árbol General para representar el espacio de soluciones de Conecta 4}
+\doxyfigcaption{Estructura interna de un T\+DA Árbol General para representar el espacio de soluciones de Conecta 4}
 \end{DoxyImage}
 
 
@@ -39,7 +39,7 @@ Por ejemplo, la métrica más sencilla consistiría en evaluar si alguno de los 
 
 \begin{DoxyImage}
 \includegraphics[width=12cm]{connect4-tree-YR}
-\caption{Detalle de posibles movimientos en el espacio de soluciones de Conecta 4}
+\doxyfigcaption{Detalle de posibles movimientos en el espacio de soluciones de Conecta 4}
 \end{DoxyImage}
 
 
@@ -61,17 +61,17 @@ Se deberán llevar a cabo las siguientes tareas\+:
 
 
 \begin{DoxyEnumerate}
-\item Construir el T.\+D.\+A. Conecta4, que almacena todos los tableros posibles de Conecta 4 generados en los próximos N turnos a partir de un tablero inicial utilizando las clases T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General} y T.\+D.\+A. \hyperlink{classTablero}{Tablero}.
-\item Definir los métodos del T.\+D.\+A. Conecta4 para la solución de los problemas propuestos, en particular, para la implementación de un jugador automático.
+\item Construir el T.\+D.\+A. \hyperlink{classConecta4}{Conecta4}, que almacena todos los tableros posibles de Conecta 4 generados en los próximos N turnos a partir de un tablero inicial utilizando las clases T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General} y T.\+D.\+A. \hyperlink{classTablero}{Tablero}.
+\item Definir los métodos del T.\+D.\+A. \hyperlink{classConecta4}{Conecta4} para la solución de los problemas propuestos, en particular, para la implementación de un jugador automático.
 \item Probar los módulos con programas test. Se puede usar la S\+TL en todos los módulos excepto en la implementación del T\+DA \hyperlink{classArbolGeneral}{Arbol\+General}.
 \end{DoxyEnumerate}
 
 A continuación se detallan los programas que se deberán desarrollar.\hypertarget{index_jugador_automatico}{}\subsection{Implementar un jugador automático}\label{index_jugador_automatico}
-Conecta 4 es un juego de estrategia abstracta donde los contrincantes disponen de información perfecta \mbox{[}Conecta4\mbox{]}. Por norma general, el primer jugador tiene más posibilidades de ganar si introduce la primera ficha en la columna central. Si lo hace en las contiguas se puede forzar un empate, mientras que si la mete en las más alejadas del centro su rival puede vencerle con mayor facilidad. Existen libros y webs donde se explican las mejores estrategias para ganar en el Conecta 4, por ejemplo puede consultarse \mbox{[}Allen13\mbox{]}.
+Conecta 4 es un juego de estrategia abstracta donde los contrincantes disponen de información perfecta \mbox{[}\hyperlink{classConecta4}{Conecta4}\mbox{]}. Por norma general, el primer jugador tiene más posibilidades de ganar si introduce la primera ficha en la columna central. Si lo hace en las contiguas se puede forzar un empate, mientras que si la mete en las más alejadas del centro su rival puede vencerle con mayor facilidad. Existen libros y webs donde se explican las mejores estrategias para ganar en el Conecta 4, por ejemplo puede consultarse \mbox{[}Allen13\mbox{]}.
 
 El estudiante debe implementar distintas \char`\"{}métricas\char`\"{} que permitan al jugador automático decidir qué movimiento realizar dada una disposición del tablero. Las métricas implementadas analizarán el espacio de soluciones posible a partir del tablero actual para evaluar cuál es el movimiento más beneficioso para el jugador automático (esto es, el movimiento que más aumente las expectativas de ganar la partida). La calidad de estas métricas dependerá, en parte, de la cantidad de información de que dispongan. De este modo, una métrica que sólo considere dos niveles en profundidad a partir del tablero actual (esto es, todos los movimientos posibles del jugador y todas las repuestas inmediatas del rival) tendrá más limitaciones que una métrica que disponga de todo el árbol de soluciones a partir del tablero actual. Evidentemente, la contrapartida es que una métrica que dispone de todo el árbol de soluciones requiere de un alto consumo en memoria y en tiempo de cómputo (según el tamaño del tablero, almacenar todo el árbol de soluciones puede ser directamente inviable). De este modo, se propone diseñar distintas métricas utilizando un árbol de soluciones con N niveles en profundidad a partir del tablero actual, donde N es variable y su elección se deja al estudiante.
 
-El estudiante debe implementar la clase T\+DA Conecta4 utilizando como tipo rep. el T\+DA. \hyperlink{classArbolGeneral}{Arbol\+General} para representar el espacio de soluciones con profundidad N e implementar distintas métricas que, haciendo uso de esta representación del espacio de soluciones, recomienden un movimiento al jugador automático. Anteriormente se ha descrito una posible métrica inicial que sólo requiere explorar un nivel del espacio de soluciones\+: evaluar si alguno de los movimientos posibles para el jugador automático produce directamente un tablero donde el jugador automático consigue 4 en línea (y, por tanto, gana la partida) o evita un 4 en línea del rival (y, por tanto, evita perder la partida). Otra métrica sencilla que requiere explorar todo el árbol de búsqueda hasta profundidad N consiste en hacer recuento de cuántos nodos a profundidad $<$=N son favorables/desfavorables (victorias/empates/derrotas) al jugador automático para cada nodo hijo del tablero actual, de modo que el hijo con mejores métricas indicará el mejor movimiento posible. Otras métricas más sofisticadas podrían explorar este espacio de búsqueda para considerar no sólo victorias o derrotas, sino también recontar el número de secuencias de tres/dos fichas del jugador automático no rodeadas por fichas del rival en cada uno de los tableros.
+El estudiante debe implementar la clase T\+DA \hyperlink{classConecta4}{Conecta4} utilizando como tipo rep. el T\+DA. \hyperlink{classArbolGeneral}{Arbol\+General} para representar el espacio de soluciones con profundidad N e implementar distintas métricas que, haciendo uso de esta representación del espacio de soluciones, recomienden un movimiento al jugador automático. Anteriormente se ha descrito una posible métrica inicial que sólo requiere explorar un nivel del espacio de soluciones\+: evaluar si alguno de los movimientos posibles para el jugador automático produce directamente un tablero donde el jugador automático consigue 4 en línea (y, por tanto, gana la partida) o evita un 4 en línea del rival (y, por tanto, evita perder la partida). Otra métrica sencilla que requiere explorar todo el árbol de búsqueda hasta profundidad N consiste en hacer recuento de cuántos nodos a profundidad $<$=N son favorables/desfavorables (victorias/empates/derrotas) al jugador automático para cada nodo hijo del tablero actual, de modo que el hijo con mejores métricas indicará el mejor movimiento posible. Otras métricas más sofisticadas podrían explorar este espacio de búsqueda para considerar no sólo victorias o derrotas, sino también recontar el número de secuencias de tres/dos fichas del jugador automático no rodeadas por fichas del rival en cada uno de los tableros.
 
 Es importante destacar que, para aliviar el costo de almacenamiento de las métricas basadas en árboles de búsqueda, una vez realizado un movimiento, el árbol debe podarse para eliminar los nodos asociados a movimientos alternativos que finalmente no fueron tomados. El T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} incluye métodos de poda facilitan esta tarea.
 
@@ -109,10 +109,10 @@ Se adjunta un programa de ejemplo ({\ttfamily src/conecta4.\+cpp}) que utiliza l
 \textcolor{comment}{// m : Mando indicando la posición del jugador.}
 
 \textcolor{keywordtype}{void} imprimeTablero(\hyperlink{classTablero}{Tablero} & t, \hyperlink{classMando}{Mando} & m)\{
-    cout << m.\hyperlink{classMando_aaf8c918ecbce5c8173fcf40e04c8b0b7}{GetJugador}() << endl;
+    cout << m.\hyperlink{classMando_a6ca29d035353a57aba1bd785d8f81c89}{GetJugador}() << endl;
     cout << t ;
-    cout << m.\hyperlink{classMando_abcc813b0881e56ed976eea2ce6b7fd12}{GetBase}() << endl;
-    cout << m.\hyperlink{classMando_a7e02a04343208f949a88e720ba63a281}{GetMando}() << endl;
+    cout << m.\hyperlink{classMando_a656a8d30e54ac1c476e8fab5a7d9e66f}{GetBase}() << endl;
+    cout << m.\hyperlink{classMando_ac7ff39c5a065899658f8ee3a335ee50f}{GetMando}() << endl;
 \}
 
 
@@ -273,7 +273,7 @@ Para T\+DA \hyperlink{classArbolGeneral}{Arbol\+General}\+:
 \end{DoxyCode}
 
 
-El estudiante deber revisar detenidamente este código y la documentación completa asociada a las clases T\+DA \hyperlink{classTablero}{Tablero} y T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} para familiarizarse con su manejo y sacarles el máximo partido para la implementación del T.\+D.\+A. Conecta4.\hypertarget{index_recomendaciones}{}\subsection{Recomendaciones}\label{index_recomendaciones}
+El estudiante deber revisar detenidamente este código y la documentación completa asociada a las clases T\+DA \hyperlink{classTablero}{Tablero} y T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} para familiarizarse con su manejo y sacarles el máximo partido para la implementación del T.\+D.\+A. \hyperlink{classConecta4}{Conecta4}.\hypertarget{index_recomendaciones}{}\subsection{Recomendaciones}\label{index_recomendaciones}
 
 \begin{DoxyItemize}
 \item Analice con detenimiento la documentación de las clases proporcionadas\+: T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General}, T.\+D.\+A. \hyperlink{classTablero}{Tablero} y T.\+D.\+A. \hyperlink{classMando}{Mando}. Parte importante del esfuerzo que debe realizar en esta práctica es entender cómo debe utilizar estas clases para su proyecto. Esta práctica es habitual en empresas\+: para el desarrollo de un proyecto se cuenta con parte del código desarrollado previamente por otro equipo.
@@ -301,6 +301,6 @@ prompt% tar zcv conecta4.tgz conecta4
 La fecha límite de entrega es el día 22 de Enero de 2017 a las 23\+:59.\hypertarget{index_referencias}{}\subsection{Referencias}\label{index_referencias}
 \mbox{[}Allen13\mbox{]} James D. Allen. \char`\"{}\+Expert Play in Connect-\/\+Four\char`\"{} (en inglés). Archivado desde el original el 4 de noviembre de 2015. \href{http://web.archive.org/web/20141125065033/http://homepages.cwi.nl/~tromp/c4.html}{\tt http\+://web.\+archive.\+org/web/20141125065033/http\+://homepages.\+cwi.\+nl/$\sim$tromp/c4.\+html}
 
-\mbox{[}Conecta4\mbox{]} \href{https://es.wikipedia.org/wiki/Conecta_4}{\tt https\+://es.\+wikipedia.\+org/wiki/\+Conecta\+\_\+4}
+\mbox{[}\hyperlink{classConecta4}{Conecta4}\mbox{]} \href{https://es.wikipedia.org/wiki/Conecta_4}{\tt https\+://es.\+wikipedia.\+org/wiki/\+Conecta\+\_\+4}
 
 \mbox{[}G\+A\+R06b\mbox{]} Garrido, A. Fdez-\/\+Valdivia, J. \char`\"{}\+Abstracción y estructuras de datos en C++\char`\"{}. Delta publicaciones, 2006. 
