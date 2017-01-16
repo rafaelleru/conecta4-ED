@@ -13,7 +13,7 @@ class Conecta4{
     bool eval;
     Tablero t;
   }
-
+  //Aquí da fallo porque creo que tritupla al estar definido en Conecta4 no puede ser ArbolGeneral.
   ArbolGeneral<tritupla> states;
   int profundidad;
   int turno;
@@ -48,5 +48,5 @@ class Conecta4{
    *  \return tablero quecontiene el siguiente movimiento.
    */
   Tablero& siguienteMovimiento(ArbolGeneral<Tablero>& t);
-}
+};
 #endif
