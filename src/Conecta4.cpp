@@ -2,9 +2,12 @@
 
 using namespace std;
 
+int get2Verticales(Tablero& t, int turno);
+int get3Horizontales(Tablero& t, int turno);
+
 int Conecta4::evalua(Tablero& t){
 
-  return 10;
+  return get2Verticales(t, 1) + get3Horizontales(t, +1);
 }
 
 void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
@@ -27,7 +30,7 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
 	  ultimoinsertado = ultimoinsertado->drcha;
 	  //this->states.insertar_hermanoderecha(ultimoinsertado, ArbolGeneral<Tablero> insert(aux));
 	}
-
+	insertado->etiqueta.cambiarTurno();
 	generaArbolEstados(prof, currentProf+1, ultimoinsertado);
       }
     } //for
