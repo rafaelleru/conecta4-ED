@@ -42,7 +42,7 @@ class Conecta4{
    *  \brief constructor a partir de un tablero
    *  \param tablero el tablero que sera el nodo raiz de nuestro arbol
    */
-  Conecta4(Tablero& tablero);
+  Conecta4(int prof,Tablero& tablero);
 
   /**
    *  \brief devuelve la evaluacion del Tablero contenido en t
