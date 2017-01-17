@@ -6,13 +6,7 @@
 
 using namespace std;
 class Conecta4{
- public:
-  //Almacena si un estado ha sido evaluado ya con la heuristica, su puntuacion y el tablero en si;
-  struct tritupla{
-    int puntuacion;
-    Tablero t;
-  };
-  //Aquí da fallo porque creo que tritupla al estar definido en Conecta4 no puede ser ArbolGeneral.
+ private:
   ArbolGeneral<Tablero> states;
   int profundidad;
   int turno;
@@ -24,12 +18,12 @@ class Conecta4{
    *  \param t el tablero a partir del cual se ramifica para los futuros estados
    */
   void generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n);			  
- private:
+ public:
   /**
    * @brief crea una partida de Conecta4 vacia;
    * @param p la profundidad hasta la que se explorara el arbol;
    */
-  Conecta4(int p);
+  Conecta4(int p, int t);
 
   /**
    *  \brief devuelve la evaluacion del Tablero contenido en t
@@ -47,5 +41,16 @@ class Conecta4{
    *  \return tablero quecontiene el siguiente movimiento.
    */
   Tablero& siguienteMovimiento(); //en states siempre estara el tablero actual como nodo raiz
+
+  /**
+   *  \brief actualiza el estado actual del tablero de juego
+   *
+   *  cuando se produce un movimiento por algun jugador el tablero que
+   *  se crea debido a ese movimiento pasa a ser el nuevo nodo raiz de
+   *  states
+   *
+   *  \param n el nodo que conformara el nuevo estado raiz de states
+   */
+  void actualizarEstado(ArbolGeneral<Tablero>::Nodo& n);
 };
 #endif

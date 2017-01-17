@@ -5,6 +5,13 @@ using namespace std;
 int get2Verticales(Tablero& t, int turno);
 int get3Horizontales(Tablero& t, int turno);
 
+Conecta4::Conecta4(int p, int t){
+  this->turno = t;
+  this->profundidad = p;
+  Tablero init(5, 7);
+  this->states.AsignaRaiz(init);
+}
+
 int Conecta4::evalua(Tablero& t){
 
   return get2Verticales(t, 1) + get3Horizontales(t, +1);
@@ -71,6 +78,10 @@ Tablero& Conecta4::siguienteMovimiento(){
   //actualizaArbolEstados();	
   return mejor;
   
+}
+
+void Conecta4::actualizarEstado(ArbolGeneral<Tablero>::Nodo& n){
+  this->states.asignar_subarbol(this->states, n);
 }
 
 
