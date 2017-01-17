@@ -13,8 +13,8 @@ class JugadorAuto{
   /**
    *  \brief obtiene la heuristica para un nodo del arbol de estados dado
    *
-   *  \param n el nodo que continee el tablero a evaluar
-   *  \return punt el valor obtenido por dicho nodo en base a nuestra heuristica.
+   *  \param n Nodo el nodo que continee el tablero a evaluar
+   *  \return punt int el valor obtenido por dicho nodo en base a nuestra heuristica.
    */
   int evaluaTablero(ArbolGeneral<Tablero>::Nodo& n);
  public:
@@ -24,9 +24,8 @@ class JugadorAuto{
    *  opcinalmente la profundidad maxima de exploracion que realizara
    *  sobre el arbol de estados del juego
    *
-   *  \param turno el turno en el que juega el jugador \param tope el
-   *  maximo nivel de profundidad que se alcanzara explorando el arbol
-   *  de estados del juego, por defecto es 4.
+   *  \param turno int el turno en el que juega el jugador 
+   *  \param tope el maximo nivel de profundidad que se alcanzara explorando el arbol de estados del juego, por defecto es 4.
    */
   JugadorAuto(int turno, int tope = 4);
 
@@ -36,6 +35,7 @@ class JugadorAuto{
    * @param t ArbolGeneral<Tablero> Arbol de estados de los posibles tableros
    * @param deep int Profundidad en la que se va mirar el mejor movimiento
    * @param currentDeep int Profundidad actual en la que está
+   * @return best_node Nodo Devuelve el nodo hijo del raiz en la rama del mejor nodo
    */
   Nodo& getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep);
 };
