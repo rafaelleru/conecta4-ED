@@ -11,7 +11,7 @@ class Conecta4{
   struct tritupla{
     int puntuacion;
     Tablero t;
-  }
+  };
   //Aquí da fallo porque creo que tritupla al estar definido en Conecta4 no puede ser ArbolGeneral.
   ArbolGeneral<Tablero> states;
   int profundidad;
@@ -23,7 +23,7 @@ class Conecta4{
    *  \param prof la profundidad que tendran los estados finales del arbol de estado (los nodos hoja)
    *  \param t el tablero a partir del cual se ramifica para los futuros estados
    */
-  int generaArbolEstados();			  
+  void generaArbolEstados();			  
  private:
   /**
    * @brief crea una partida de Conecta4 vacia;

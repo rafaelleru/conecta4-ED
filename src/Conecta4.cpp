@@ -7,43 +7,51 @@ int Conecta4::evalua(Tablero& t){
   return 10;
 }
 
-void generaArbolEstados(){
-  ArbolGeneral<Tablero>::Nodo n = states.raiz();
-  for (int i = 0; i < n.etiqueta().GetTablero().size(); i++) {
-    Tablero aux = n.etiqueta();
+void Conecta4::generaArbolEstados(){
+  ArbolGeneral<Tablero>::Nodo n = this->states.raiz();
+
+  //Para cada columna posible
+  for (int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
+    Tablero aux = n->etiqueta;
     if(aux.colocarFicha(i)){
-      ArbolGeneral<Tablero>::Nodo insertado(aux);
+      ArbolGeneral<Tablero>::Nodo insertado;
+      insertado->etiqueta = aux; //No funciona con el constructor del nodo
       ArbolGeneral<Tablero>::Nodo ultimoinsertado;
       if(i = 0){
-	this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
-	ultimoinsertado = this->states.hijomasizquierda(n);
+	// this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
+	// ultimoinsertado = this->states.hijomasizquierda(n);
+	n->izqda = insertado;
+	ultimoinsertado = n->izqda;
       } else {
-	this->states.insertar_hermanoderecha(
-  }
-  Tablero aux = 
+	ultimoinsertado->drcha = insertado;
+	ultimoinsertado = ultimoinsertado->drcha;
+	//this->states.insertar_hermanoderecha(ultimoinsertado, ArbolGeneral<Tablero> insert(aux));
+     }
+    }
+  } //for
 }
 
 
 Tablero& Conecta4::siguienteMovimiento(ArbolGeneral<Tablero>& t){
-  ArbolGeneral<Tablero>::Nodo raiz = t.getRaiz();
-  int mejor;
-  Tablero bestMove;
+  // ArbolGeneral<Tablero>::Nodo raiz = t.getRaiz();
+  // int mejor;
+  // Tablero bestMove;
 
-  ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
+  // ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
 
-  for(it; it != t.endpreorden(); ++it){
-    //Hay qe controlar la profundidad
-    if((*it).quienGana() == this->turno){
-      return (*it);
-    }
-    if(evalua(*it) > mejor){
-      mejor = evalua(*it);
-      bestMove = (*it);
-    }
+  // for(it; it != t.endpreorden(); ++it){
+  //   //Hay qe controlar la profundidad
+  //   if((*it).quienGana() == this->turno){
+  //     return (*it);
+  //   }
+  //   if(evalua(*it) > mejor){
+  //     mejor = evalua(*it);
+  //     bestMove = (*it);
+  //   }
 
 
-    return bestMove; 
-  }
+  //   return bestMove; 
+  // }
 }
 
 
