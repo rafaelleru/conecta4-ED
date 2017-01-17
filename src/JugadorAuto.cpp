@@ -97,6 +97,7 @@ int get3Verticales(Tablero& t, int turno){
 }
 
 int JugadorAuto::evaluaTablero(ArbolGeneral<Tablero>::Nodo& n){
-  return  get2Verticales(n->etiqueta, this->turno) + get3Verticales(n->etiqueta, this->turno) + get2Horizontales(n->etiqueta, this->turno) + get3Horizontales(n->etiqueta, this->turno);
+  return  get2Verticales(n->etiqueta, this->turno) + get3Verticales(n->etiqueta, this->turno) +
+    get2Horizontales(n->etiqueta, this->turno) + get3Horizontales(n->etiqueta, this->turno);
 }//metodo
 
