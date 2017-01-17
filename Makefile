@@ -35,6 +35,9 @@ $(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
 	echo "Creando Conecta4.o"
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/Conecta4.o $(SRC)/Conecta4.cpp -I$(INC)
 
+$(OBJ)/JugadorAuto.o: $(SRC)/JugadorAuto.cpp
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/JugadorAuto.o $(SRC)/JugadorAuto.cpp -I$(INC)
+
 $(LIB)/libtablero.a: $(OBJ)/tablero.o
 	$(AR) $(LIB)/libtablero.a $(OBJ)/tablero.o
 
