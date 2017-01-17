@@ -7,10 +7,23 @@
 using namespace std;
 class Conecta4{
  private:
-  ArbolGeneral<Tablero> states;
-  int profundidad;
-  int turno;
 
+  /**
+   *   \file Conecta4.h 
+   *   \brief  TDA necesario para gestionar una partida de Conecta
+   *
+   *   Implementa el TDA necesario para
+   *   gestionar una partida de Conecta4 entre dos jugadores
+   *   automaticos, almacenando para ello un arbol de posibles estados
+   *   en el tablero
+   *
+   * Segun nuestra implementacion esta case deberia diseñarse con el
+   * patron de diseño singleton
+   *
+   */
+
+  /*!< almacena el conjunto de estados de la partida */
+  ArbolGeneral<Tablero> states;
   /**
    *  \brief genera los futuros estados para una profundida prof a partir del estado del tablero t
    *
@@ -23,7 +36,13 @@ class Conecta4{
    * @brief crea una partida de Conecta4 vacia;
    * @param p la profundidad hasta la que se explorara el arbol;
    */
-  Conecta4(int p, int t);
+  Conecta4(int f, int c);
+
+  /**
+   *  \brief constructor a partir de un tablero
+   *  \param tablero el tablero que sera el nodo raiz de nuestro arbol
+   */
+  Conecta4(Tablero& tablero);
 
   /**
    *  \brief devuelve la evaluacion del Tablero contenido en t
@@ -52,5 +71,11 @@ class Conecta4{
    *  \param n el nodo que conformara el nuevo estado raiz de states
    */
   void actualizarEstado(ArbolGeneral<Tablero>::Nodo& n);
+
+  /**
+   *  \brief devuelve una referencia constante al arbol de estados que almacena Conecta4
+   *  \return return const ArbolGeneral<Tablero>& referencia constante al arbol de estados de la partida.
+   */
+  const ArbolGeneral<Tablero>& getStates();
 };
 #endif

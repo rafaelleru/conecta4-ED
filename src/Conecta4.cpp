@@ -5,16 +5,13 @@ using namespace std;
 int get2Verticales(Tablero& t, int turno);
 int get3Horizontales(Tablero& t, int turno);
 
-Conecta4::Conecta4(int p, int t){
-  this->turno = t;
-  this->profundidad = p;
-  Tablero init(5, 7);
+Conecta4::Conecta4(int f, int c){
+  Tablero init(f,c);
   this->states.AsignaRaiz(init);
 }
 
-int Conecta4::evalua(Tablero& t){
-
-  return get2Verticales(t, 1) + get3Horizontales(t, +1);
+Conecta4::Conecta4(Tablero& tablero){
+  this->states.AsignaRaiz(init);
 }
 
 void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
@@ -147,4 +144,8 @@ int get3Verticales(Tablero& t, int turno){
   }
 
   return ntreses;
+}
+
+const ArbolGeneral<Tablero>& Conecta4::getStates(){
+  return this->states;
 }
