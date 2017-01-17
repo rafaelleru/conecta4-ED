@@ -11,13 +11,14 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
 
   if(currentProf != prof){
     //Para cada columna posible
-    for (int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
+    //Cambio "int" a "unsigned int"
+    for (unsigned int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
       Tablero aux = n->etiqueta;
       if(aux.colocarFicha(i)){
 	ArbolGeneral<Tablero>::Nodo insertado;
 	insertado->etiqueta = aux; //No funciona con el constructor del nodo
 	ArbolGeneral<Tablero>::Nodo ultimoinsertado;
-	if(i = 0){
+	if(i == 0){
 	  // this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
 	  // ultimoinsertado = this->states.hijomasizquierda(n);
 	  n->izqda = insertado;
