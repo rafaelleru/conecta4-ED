@@ -2,9 +2,9 @@
 
 using namespace std;
 
-ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<tablero>& t, int deep, int currentDeep){
+ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
 
-    Nodo best_node;
+  ArbolGeneral<Tablero>::Nodo best_node;
     int value_node = 0;
     int best_value_node = -1;
 
@@ -20,7 +20,7 @@ ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<tab
 
 	if(value_node > best_value_node){
 	  best_value_node = value_node;
-	  best_node = *it;
+	  best_node = //it a nodo;
 	}
       }//for
     }
@@ -31,9 +31,11 @@ ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<tab
     return best_node;
 }//metodo
 
+
 int JugadorAuto::evaluaTablero(ArbolGeneral<Tablero>::Nodo& n){
 
   int punt;
   punt = n.get2Verticales(n->etiqueta, this->turno) + n.get3Verticales(n->etiqueta, this->turno) + n.get2Horizontales(n->etiqueta, this->turno) + n.get3Horizontales(n->etiqueta, this->turno);
   retun punt;
 }//metodo
+
