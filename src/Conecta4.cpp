@@ -10,8 +10,8 @@ Conecta4::Conecta4(int f, int c){
   this->states.AsignaRaiz(init);
 }
 
-Conecta4::Conecta4(Tablero& tablero){
-  this->states.AsignaRaiz(init);
+Conecta4::Conecta4(int prof, Tablero& tablero){
+  this->states.AsignaRaiz(tablero);
 }
 
 void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
@@ -43,39 +43,39 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
 }
 
 
-Tablero& Conecta4::siguienteMovimiento(){
-  /*
-    Nuestro arbol de estados siempre tendra en su raiz el estado
-    actual del tablero, de modo que solo tenemos que evaluar los nodos
-    que nos indique la profundidad de nuestra heuristica, generar los que falten
-    y al salir del metodo actualizar la raiz de nuestro arbol
-  */
-  int prof = 0;
-  int mejorValoracionNodo = -1;
-  Tablero mejor; //Presenta el mejor movimiento encontrado
+// Tablero& Conecta4::siguienteMovimiento(){
+//   /*
+//     Nuestro arbol de estados siempre tendra en su raiz el estado
+//     actual del tablero, de modo que solo tenemos que evaluar los nodos
+//     que nos indique la profundidad de nuestra heuristica, generar los que falten
+//     y al salir del metodo actualizar la raiz de nuestro arbol
+//   */
+//   int prof = 0;
+//   int mejorValoracionNodo = -1;
+//   Tablero mejor; //Presenta el mejor movimiento encontrado
 
-  ArbolGeneral<Tablero>::preorden_iterador it = this->states.beginpreorden();
-  //Esto no se paralelizarlo
-  for (it; it != this->states.endpreorden() && prof != this->profundidad; ++it) {
-    if(it.hermano() == 0){
-      prof++;
-    }
-    int val = evalua((*it)); //Depende de la heuristica varias
-			     //llamadas pueden ser muy lentas asi que
-			     //almacenamos el valor para usarlo
-			     //siempre
-    if(val > mejorValoracionNodo){
-      mejorValoracionNodo = val;
-      mejor = *it;
-    }
+//   ArbolGeneral<Tablero>::preorden_iterador it = this->states.beginpreorden();
+//   //Esto no se paralelizarlo
+//   for (it; it != this->states.endpreorden() && prof != this->profundidad; ++it) {
+//     if(it.hermano() == 0){
+//       prof++;
+//     }
+//     int val = evalua((*it)); //Depende de la heuristica varias
+// 			     //llamadas pueden ser muy lentas asi que
+// 			     //almacenamos el valor para usarlo
+// 			     //siempre
+//     if(val > mejorValoracionNodo){
+//       mejorValoracionNodo = val;
+//       mejor = *it;
+//     }
     
-  }
+//   }
 
-  //Antes de devolver vamos a actualizar nuestro arbol de estados
-  //actualizaArbolEstados();	
-  return mejor;
+//   //Antes de devolver vamos a actualizar nuestro arbol de estados
+//   //actualizaArbolEstados();	
+//   return mejor;
   
-}
+// }
 
 void Conecta4::actualizarEstado(ArbolGeneral<Tablero>::Nodo& n){
   this->states.asignar_subarbol(this->states, n);
