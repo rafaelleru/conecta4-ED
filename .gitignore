@@ -31,3 +31,6 @@
 *~
 .DS_Store
 bin/
+
+#Copias de seguridad de emacs
+\#*\#
