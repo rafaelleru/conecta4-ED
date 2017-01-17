@@ -63,6 +63,8 @@ Tablero& Conecta4::siguienteMovimiento(){
     
   }
 
+  //Antes de devolver vamos a actualizar nuestro arbol de estados
+  //actualizaArbolEstados();	
   return mejor;
   
 }
