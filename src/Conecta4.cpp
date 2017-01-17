@@ -7,28 +7,31 @@ int Conecta4::evalua(Tablero& t){
   return 10;
 }
 
-void Conecta4::generaArbolEstados(){
-  ArbolGeneral<Tablero>::Nodo n = this->states.raiz();
+void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
 
-  //Para cada columna posible
-  for (int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
-    Tablero aux = n->etiqueta;
-    if(aux.colocarFicha(i)){
-      ArbolGeneral<Tablero>::Nodo insertado;
-      insertado->etiqueta = aux; //No funciona con el constructor del nodo
-      ArbolGeneral<Tablero>::Nodo ultimoinsertado;
-      if(i = 0){
-	// this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
-	// ultimoinsertado = this->states.hijomasizquierda(n);
-	n->izqda = insertado;
-	ultimoinsertado = n->izqda;
-      } else {
-	ultimoinsertado->drcha = insertado;
-	ultimoinsertado = ultimoinsertado->drcha;
-	//this->states.insertar_hermanoderecha(ultimoinsertado, ArbolGeneral<Tablero> insert(aux));
-     }
-    }
-  } //for
+  if(currentProf != prof){
+    //Para cada columna posible
+    for (int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
+      Tablero aux = n->etiqueta;
+      if(aux.colocarFicha(i)){
+	ArbolGeneral<Tablero>::Nodo insertado;
+	insertado->etiqueta = aux; //No funciona con el constructor del nodo
+	ArbolGeneral<Tablero>::Nodo ultimoinsertado;
+	if(i = 0){
+	  // this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
+	  // ultimoinsertado = this->states.hijomasizquierda(n);
+	  n->izqda = insertado;
+	  ultimoinsertado = n->izqda;
+	} else {
+	  ultimoinsertado->drcha = insertado;
+	  ultimoinsertado = ultimoinsertado->drcha;
+	  //this->states.insertar_hermanoderecha(ultimoinsertado, ArbolGeneral<Tablero> insert(aux));
+	}
+
+	generaArbolEstados(prof, currentProf+1, ultimoinsertado);
+      }
+    } //for
+  }//if
 }
 
 

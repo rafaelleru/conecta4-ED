@@ -23,7 +23,7 @@ class Conecta4{
    *  \param prof la profundidad que tendran los estados finales del arbol de estado (los nodos hoja)
    *  \param t el tablero a partir del cual se ramifica para los futuros estados
    */
-  void generaArbolEstados();			  
+  void generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n);			  
  private:
   /**
    * @brief crea una partida de Conecta4 vacia;
