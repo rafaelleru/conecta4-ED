@@ -25,8 +25,8 @@ $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
 $(BIN)/mipartida: $(OBJ)/mipartida.o $(LIB)/libtablero.a $(LIB)/libmando.a
 	$(CXX) -o $(BIN)/mipartida $(OBJ)/mipartida.o -I$(INC) -L$(LIB) -ltablero -lmando
 
-$(OBJ)/mipartida.o: $(SRC)/mi_partida.cpp
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/Conecta4.o -I$(INC)
+$(OBJ)/mipartida.o: $(SRC)/mi_partida.cpp $(OBJ)/JugadorAuto.o
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC)
 
 $(OBJ)/conecta4.o: $(SRC)/conecta4.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/conecta4.o $(SRC)/conecta4.cpp -I$(INC)
@@ -36,6 +36,7 @@ $(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/Conecta4.o $(SRC)/Conecta4.cpp -I$(INC)
 
 $(OBJ)/JugadorAuto.o: $(SRC)/JugadorAuto.cpp
+	echo "Creando jugador automatico"
 	$(CXX) $(CPPFLAGS) -o $(OBJ)/JugadorAuto.o $(SRC)/JugadorAuto.cpp -I$(INC)
 
 $(LIB)/libtablero.a: $(OBJ)/tablero.o
