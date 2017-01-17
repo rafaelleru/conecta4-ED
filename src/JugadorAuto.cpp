@@ -33,9 +33,6 @@ ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<Tab
 
 
 int JugadorAuto::evaluaTablero(ArbolGeneral<Tablero>::Nodo& n){
-
-  int punt;
-  punt = n.get2Verticales(n->etiqueta, this->turno) + n.get3Verticales(n->etiqueta, this->turno) + n.get2Horizontales(n->etiqueta, this->turno) + n.get3Horizontales(n->etiqueta, this->turno);
-  retun punt;
+  return  n.get2Verticales(n->etiqueta, this->turno) + n.get3Verticales(n->etiqueta, this->turno) + n.get2Horizontales(n->etiqueta, this->turno) + n.get3Horizontales(n->etiqueta, this->turno);
 }//metodo
 
