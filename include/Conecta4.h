@@ -46,6 +46,6 @@ class Conecta4{
    *  \param n representa el estado a partir del cual jugamos
    *  \return tablero quecontiene el siguiente movimiento.
    */
-  Tablero& siguienteMovimiento(ArbolGeneral<Tablero>& t);
+  Tablero& siguienteMovimiento(); //en states siempre estara el tablero actual como nodo raiz
 };
 #endif
