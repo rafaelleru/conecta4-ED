@@ -16,7 +16,7 @@ ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<tab
 	if(it.hermano() == 0)
 	  ++deep;
 
-	value_node = evalua(*it);
+	value_node = evaluaTablero(*it);
 
 	if(value_node > best_value_node){
 	  best_value_node = value_node;
@@ -29,4 +29,11 @@ ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<tab
       best_node = best_node->padre;
 
     return best_node;
+}//metodo
+
+int JugadorAuto::evaluaTablero(ArbolGeneral<Tablero>::Nodo& n){
+
+  int punt;
+  punt = n.get2Verticales(n->etiqueta, this->turno) + n.get3Verticales(n->etiqueta, this->turno) + n.get2Horizontales(n->etiqueta, this->turno) + n.get3Horizontales(n->etiqueta, this->turno);
+  retun punt;
 }//metodo
