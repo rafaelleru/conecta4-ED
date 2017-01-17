@@ -45,16 +45,16 @@ int jugar_partida() {
     ArbolGeneral<Tablero>::Nodo n;
     while(quienGana == 0){
       if(i%2 == 0){ //Juega 1
-	n = uno.getBestNextMove(conecta.getStates());
+	n = uno.getNextBestMove(conecta.getStates());
       }else{
-	n = dos.getBestNextMove(conecta.getStates());
+	n = dos.getNextBestMove(conecta.getStates());
       }
       
       conecta.actualizarEstado(n);
       system("clear");
       //mando.actualizarJuego(c, tablero);  // actualiza tablero según comando c 
-      imprimeTablero(n.etiqueta(), mando);     // muestra tablero y mando en pantalla
-      quienGana = n.etiqueta().quienGana();    // hay ganador?
+      imprimeTablero(n->etiqueta, mando);     // muestra tablero y mando en pantalla
+      quienGana = n->etiqueta.quienGana();    // hay ganador?
     }
 
     return tablero.quienGana();
