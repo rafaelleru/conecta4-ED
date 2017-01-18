@@ -27,7 +27,7 @@ Tablero& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, 
       }
     }//for
 
-  for(deep; deep-1 > currentDeep; --deep){
+  for(deep; deep > currentDeep; --deep){
     it = it.padre();
   }
     
