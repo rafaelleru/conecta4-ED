@@ -41,7 +41,7 @@ int jugar_partida() {
     JugadorAuto uno(1, 7);
     JugadorAuto dos(2, 7);    
     int i = 0;
-    int quienGana = tablero.quienGana();
+    int quienGana = 0;
     Tablero n;
     while(quienGana == 0){
       if(i%2 == 0){ //Juega 1

@@ -8,10 +8,14 @@ int get3Horizontales(Tablero& t, int turno);
 Conecta4::Conecta4(int f, int c){
   Tablero init(f,c);
   this->states.AsignaRaiz(init);
+  ArbolGeneral<Tablero>::Nodo n = this->states.raiz();
+  generaArbolEstados(10, 0, n);
 }
 
 Conecta4::Conecta4(int prof, Tablero& tablero){
   this->states.AsignaRaiz(tablero);
+  ArbolGeneral<Tablero>::Nodo n = this->states.raiz();
+  generaArbolEstados(10, 0, n);
 }
 
 void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
@@ -19,7 +23,8 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
   if(currentProf != prof){
     //Para cada columna posible
     //Cambio "int" a "unsigned int"
-    for (unsigned int i = 0; i < n->etiqueta.GetTablero().size(); i++) {
+    cout << "aqui" << endl;
+    for (unsigned int i = 0; i < n->etiqueta.GetColumnas(); i++) {
       Tablero aux = n->etiqueta;
       if(aux.colocarFicha(i)){
 	ArbolGeneral<Tablero>::Nodo insertado;
