@@ -11,6 +11,7 @@ CPPFLAGS = -Wall -g  -I$(INC) -c
 
 
 all: $(BIN)/conecta4 $(BIN)/arboltablero_test $(BIN)/mipartida
+mipartida: $(BIN)/mipartida
 # ************ Generación de documentación ******************
 documentacion:
 	doxygen doc/doxys/Doxyfile
@@ -22,22 +23,8 @@ $(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a $(OBJ)/
 $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
 	$(CXX) -o $(BIN)/conecta4 $(OBJ)/conecta4.o -I$(INC) -L$(LIB) -ltablero -lmando
 
-$(BIN)/mipartida: $(OBJ)/mipartida.o $(LIB)/libtablero.a $(LIB)/libmando.a
-	$(CXX) -o $(BIN)/mipartida $(OBJ)/mipartida.o -I$(INC) -L$(LIB) -ltablero -lmando
-
-$(OBJ)/mipartida.o: $(SRC)/mi_partida.cpp $(OBJ)/JugadorAuto.o
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC)
-
 $(OBJ)/conecta4.o: $(SRC)/conecta4.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/conecta4.o $(SRC)/conecta4.cpp -I$(INC)
-
-$(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
-	echo "Creando Conecta4.o"
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/Conecta4.o $(SRC)/Conecta4.cpp -I$(INC)
-
-$(OBJ)/JugadorAuto.o: $(SRC)/JugadorAuto.cpp
-	echo "Creando jugador automatico"
-	$(CXX) $(CPPFLAGS) -o $(OBJ)/JugadorAuto.o $(SRC)/JugadorAuto.cpp -I$(INC)
 
 $(LIB)/libtablero.a: $(OBJ)/tablero.o
 	$(AR) $(LIB)/libtablero.a $(OBJ)/tablero.o
@@ -53,6 +40,21 @@ $(OBJ)/arboltablero_test.o: $(SRC)/arboltablero_test.cpp $(INC)/tablero.h
 
 $(OBJ)/mando.o: $(SRC)/mando.cpp $(INC)/mando.h $(INC)/tablero.h
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mando.o $(SRC)/mando.cpp -I$(INC)
+
+#******************** Añadido por nosotros ********************
+$(BIN)/mipartida: $(OBJ)/mipartida.o $(LIB)/libtablero.a $(LIB)/libmando.a
+	$(CXX) -o $(BIN)/mipartida $(OBJ)/mipartida.o $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC) -L$(LIB) -ltablero -lmando
+
+$(OBJ)/mipartida.o: $(SRC)/mi_partida.cpp $(OBJ)/JugadorAuto.o
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC)
+
+$(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
+	echo "Creando Conecta4.o"
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/Conecta4.o $(SRC)/Conecta4.cpp -I$(INC)
+
+$(OBJ)/JugadorAuto.o: $(SRC)/JugadorAuto.cpp
+	echo "Creando jugador automatico"
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/JugadorAuto.o $(SRC)/JugadorAuto.cpp -I$(INC)
 
 # ************ Limpieza ************
 clean :
