@@ -77,8 +77,11 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
   
 // }
 
-void Conecta4::actualizarEstado(ArbolGeneral<Tablero>::Nodo& n){
-  this->states.asignar_subarbol(this->states, n);
+void Conecta4::actualizarEstado(Tablero& n){
+  ArbolGeneral<Tablero> aux(n);
+  ArbolGeneral<Tablero>::Nodo nueva_raiz = aux.raiz();
+  generaArbolEstados(7, 0, nueva_raiz);
+  this->states = aux;
 }
 
 const ArbolGeneral<Tablero>& Conecta4::getStates(){

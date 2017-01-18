@@ -16,7 +16,7 @@ class JugadorAuto{
    *  \param n Nodo el nodo que continee el tablero a evaluar
    *  \return punt int el valor obtenido por dicho nodo en base a nuestra heuristica.
    */
-  int evaluaTablero(ArbolGeneral<Tablero>::Nodo& n);
+  int evaluaTablero(Tablero& n);
  public:
 
   /**
@@ -37,7 +37,7 @@ class JugadorAuto{
    * @param currentDeep int Profundidad actual en la que está
    * @return best_node Nodo Devuelve el nodo hijo del raiz en la rama del mejor nodo
    */
-  ArbolGeneral<Tablero>::Nodo& getNextBestMove(const ArbolGeneral<Tablero>& t, int deep = 4, int currentDeep = 0);
+  Tablero& getNextBestMove(const ArbolGeneral<Tablero>& t, int deep = 4, int currentDeep = 0);
 };
 
 

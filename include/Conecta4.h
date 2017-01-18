@@ -70,7 +70,7 @@ class Conecta4{
    *
    *  \param n el nodo que conformara el nuevo estado raiz de states
    */
-  void actualizarEstado(ArbolGeneral<Tablero>::Nodo& n);
+  void actualizarEstado(Tablero& n);
 
   /**
    *  \brief devuelve una referencia constante al arbol de estados que almacena Conecta4

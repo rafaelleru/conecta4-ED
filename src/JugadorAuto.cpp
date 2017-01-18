@@ -2,33 +2,35 @@
 
 using namespace std;
 
-ArbolGeneral<Tablero>::Nodo& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
+Tablero& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
 
-  ArbolGeneral<Tablero>::Nodo best_node;
-    int value_node = 0;
-    int best_value_node = -1;
 
-    if(currentDeep <= deep){
+  Tablero best;
+  int value_node = 0;
+  int best_value_node = -1;
 
-      ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
-      for(it; it != t.endpreorden() && currentDeep != deep; ++it){
+  ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
+  if(currentDeep <= deep){
+    for(it; it != t.endpreorden() && currentDeep != deep; ++it){
 
-	if(it.hermano() == 0)
-	  ++deep;
+      if(it.hermano() == 0)
+	++deep;
 
-	value_node = evaluaTablero(*it);
+      value_node = evaluaTablero(*it);
 
-	if(value_node > best_value_node){
-	  best_value_node = value_node;
-	  best_node = //it a nodo;
-	}
-      }//for
-    }
+      if(value_node > best_value_node){
+	best_value_node = value_node;
+	best = *it;
+      }
+    }//for
+  }
 
-    for(deep; deep > currentDeep; --deep)
-      best_node = best_node->padre;
+  for(deep; deep-1 > currentDeep; --deep){
+    it = it.padre();
+  }
+    
 
-    return best_node;
+  return *it;
 }//metodo
 
 
@@ -96,8 +98,8 @@ int get3Verticales(Tablero& t, int turno){
   return ntreses;
 }
 
-int JugadorAuto::evaluaTablero(ArbolGeneral<Tablero>::Nodo& n){
-  return  get2Verticales(n->etiqueta, this->turno) + get3Verticales(n->etiqueta, this->turno) +
-    get2Horizontales(n->etiqueta, this->turno) + get3Horizontales(n->etiqueta, this->turno);
+int JugadorAuto::evaluaTablero(Tablero& n){
+  return  get2Verticales(n, this->turno) + get3Verticales(n, this->turno) +
+    get2Horizontales(n, this->turno) + get3Horizontales(n, this->turno);
 }//metodo
 

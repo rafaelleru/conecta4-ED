@@ -42,7 +42,7 @@ int jugar_partida() {
     JugadorAuto dos(2, 7);    
     int i = 0;
     int quienGana = tablero.quienGana();
-    ArbolGeneral<Tablero>::Nodo n;
+    Tablero n;
     while(quienGana == 0){
       if(i%2 == 0){ //Juega 1
 	n = uno.getNextBestMove(conecta.getStates());
@@ -53,8 +53,8 @@ int jugar_partida() {
       conecta.actualizarEstado(n);
       system("clear");
       //mando.actualizarJuego(c, tablero);  // actualiza tablero según comando c 
-      imprimeTablero(n->etiqueta, mando);     // muestra tablero y mando en pantalla
-      quienGana = n->etiqueta.quienGana();    // hay ganador?
+      imprimeTablero(n, mando);     // muestra tablero y mando en pantalla
+      quienGana = n.quienGana();    // hay ganador?
     }
 
     return tablero.quienGana();
