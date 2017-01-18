@@ -23,7 +23,7 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
   if(currentProf != prof){
     //Para cada columna posible
     //Cambio "int" a "unsigned int"
-    cout << "aqui" << endl;
+
     for (int i = 0; i < n->etiqueta.GetColumnas(); i++) {
       Tablero aux = n->etiqueta;
       if(aux.colocarFicha(i)){
@@ -33,11 +33,15 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
 	if(i == 0){
 	  // this->states.insertar_hijomasizquierda(n, ArbolGeneral<Tablero> insert(aux));
 	  // ultimoinsertado = this->states.hijomasizquierda(n);
-	  n->izqda = insertado;
-	  ultimoinsertado = n->izqda;
+	  cout << "if: " << endl;
+	  ArbolGeneral<Tablero> newTree(aux);
+	  this->states.insertar_hijomasizquierda(n, newTree);
+	  ultimoinsertado = this->states.hijomasizquierda(n);
 	} else {
-	  ultimoinsertado->drcha = insertado;
-	  ultimoinsertado = ultimoinsertado->drcha;
+	  cout << "else" << endl;
+	  ArbolGeneral<Tablero> newTree(aux);
+	  this->states.insertar_hermanoderecha(ultimoinsertado, newTree);
+	  ultimoinsertado = this->states.hermanoderecha(ultimoinsertado);
 	  //this->states.insertar_hermanoderecha(ultimoinsertado, ArbolGeneral<Tablero> insert(aux));
 	}
 	insertado->etiqueta.cambiarTurno();
