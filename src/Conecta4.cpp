@@ -24,7 +24,7 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
     //Para cada columna posible
     //Cambio "int" a "unsigned int"
     cout << "aqui" << endl;
-    for (unsigned int i = 0; i < n->etiqueta.GetColumnas(); i++) {
+    for (int i = 0; i < n->etiqueta.GetColumnas(); i++) {
       Tablero aux = n->etiqueta;
       if(aux.colocarFicha(i)){
 	ArbolGeneral<Tablero>::Nodo insertado;
