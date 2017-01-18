@@ -80,6 +80,10 @@ void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tabler
 void Conecta4::actualizarEstado(Tablero& n){
   ArbolGeneral<Tablero> aux(n);
   ArbolGeneral<Tablero>::Nodo nueva_raiz = aux.raiz();
+  //Esta funcion se va a llamar tras elegir un movimiento por un
+  //jugador, con lo cual podria ser viable buscar el hijo que tiene el
+  //tablero n el cual contiene el movimiento elegido por el jugador, y
+  //no generar de nuevo nodos que ya esten generados
   generaArbolEstados(7, 0, nueva_raiz);
   this->states = aux;
 }

@@ -2,6 +2,11 @@
 
 using namespace std;
 
+JugadorAuto::JugadorAuto(int turno, int tope){
+  this->turno = turno;
+  this->tope = tope;
+}
+
 Tablero& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
 
 
