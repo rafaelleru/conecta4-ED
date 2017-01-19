@@ -57,17 +57,16 @@ int jugar_partida() {
     const ArbolGeneral<Tablero> states = conecta.getStates();
     while(quienGana == 0){
       if(i%2 == 0){ //Juega 1
-	n = uno.getNextBestMove(states, 5, 0);
+    	n = uno.getNextBestMove(states, 3, 0);
       }else{
-	n = dos.getNextBestMove(states, 5, 0);
+    	n = dos.getNextBestMove(states, 3, 0);
       }
-      
       conecta.actualizarEstado(n);
       system("clear");
       //mando.actualizarJuego(c, tablero);  // actualiza tablero según comando c 
-      //imprimeTablero(n, mando);     // muestra tablero y mando en pantalla
+      imprimeTablero(n, mando);     // muestra tablero y mando en pantalla
       printTableo(n);
-      //cout << n;
+      cout << n;
       quienGana = n.quienGana();    // hay ganador?
     }
 
@@ -75,6 +74,6 @@ int jugar_partida() {
 }
 
 int main(int argc, char *argv[]){
-    int ganador = jugar_partida();
-    cout << "Ha ganado el jugador " << ganador << endl;
+  int ganador = jugar_partida();
+  cout << "Ha ganado el jugador " << ganador << endl;
 }  
