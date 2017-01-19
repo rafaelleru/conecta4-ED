@@ -24,6 +24,7 @@ class Conecta4{
 
   /*!< almacena el conjunto de estados de la partida */
   ArbolGeneral<Tablero> states;
+  int tope;
   /**
    *  \brief genera los futuros estados para una profundida prof a partir del estado del tablero t
    *
