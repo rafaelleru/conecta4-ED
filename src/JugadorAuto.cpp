@@ -8,30 +8,6 @@ JugadorAuto::JugadorAuto(int turno, int tope){
 }
 
 Tablero& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
-  cout << "el tamanio del arbol es: " << t.size() << endl;
-  ArbolGeneral<Tablero>::preorden_iterador best;
-  int value_node = 0;
-  int best_value_node = -1;
-
-  ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
-
-  for(it; it != t.endpreorden() && currentDeep < this->tope; ++it){
-
-    if(it.hermano() == 0)
-      ++currentDeep;
-
-    value_node = evaluaTablero(*it);
-
-    if(value_node > best_value_node){
-      best_value_node = value_node;
-      best = it;
-    }
-  }//for
-    
-  for(currentDeep; currentDeep > 1 && best.padre() != 0; --currentDeep)
-    best = best.padre();
-
-  return *best;
 
 }//metodo
 
