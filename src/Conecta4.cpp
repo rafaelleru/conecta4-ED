@@ -62,6 +62,6 @@ void Conecta4::actualizarEstado(Tablero& n){
   generaArbolEstados(this->tope, 0, nueva_raiz);
 }
 
-const ArbolGeneral<Tablero>& Conecta4::getStates(){
+ArbolGeneral<Tablero>& Conecta4::getStates(){
   return this->states;
 }

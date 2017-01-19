@@ -77,6 +77,6 @@ class Conecta4{
    *  \brief devuelve una referencia constante al arbol de estados que almacena Conecta4
    *  \return return const ArbolGeneral<Tablero>& referencia constante al arbol de estados de la partida.
    */
-  const ArbolGeneral<Tablero>& getStates();
+  ArbolGeneral<Tablero>& getStates();
 };
 #endif

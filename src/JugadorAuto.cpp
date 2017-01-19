@@ -8,8 +8,48 @@ JugadorAuto::JugadorAuto(int turno, int tope){
 }
 
 Tablero& JugadorAuto::getNextBestMove(const ArbolGeneral<Tablero>& t, int deep, int currentDeep){
+  ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
+  ArbolGeneral<Tablero>::preorden_iterador mejor;
+  int mejorVal = 0;
 
-}//metodo
+  ArbolGeneral<Tablero>::Nodo n = t.raiz();
+
+  cout << n->etiqueta << endl;
+  n = n->izqda;
+  for (int i=0; i < deep; i++) {
+    while(n->drcha != 0){
+      cout << "hermano" << endl;
+      cout << n->etiqueta;
+      n = n->drcha;
+    }
+
+    if(n->izqda != 0){
+      cout << "hijo" << endl;
+      cout << n->etiqueta;
+      n = n->izqda;
+    }
+  }
+  
+  // for(i; i != t.endpreorden() && currentDeep < deep/*este es el tope*/; ++i){
+  //   int currentEval = 0;
+  //   if(i.hermano() == 0){
+  //     currentDeep++;
+  //     cout << "Paso de nivel" << endl;
+  //   }else
+  //     cout << "me muevo al hermano" << endl;
+
+  //   currentEval = evaluaTablero(*i);
+
+  //   if(mejorVal < currentEval){
+  //     mejorVal = currentEval;
+  //     mejor = i;
+  //   }
+  // }
+
+  // while(currentDeep != 1){
+  //   mejor = mejor.padre();
+  //   currentDeep--;
+}
 
 
 //--------------------------------------------------------------------------------
