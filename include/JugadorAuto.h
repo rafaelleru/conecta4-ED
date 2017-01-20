@@ -17,9 +17,9 @@ class JugadorAuto{
    *  \return punt int el valor obtenido por dicho nodo en base a nuestra heuristica.
    */
   int evaluaTablero(Tablero& n);
-
- public:
   ArbolGeneral<Tablero>& generaArbolEstados(ArbolGeneral<Tablero>& n, int cd, ArbolGeneral<Tablero>::Nodo& li);
+ public:
+
   /**
    *  \brief constructor de jugador, se le pasa el turno y
    *  opcinalmente la profundidad maxima de exploracion que realizara
@@ -38,7 +38,7 @@ class JugadorAuto{
    * @param currentDeep int Profundidad actual en la que está
    * @return best_node Nodo Devuelve el nodo hijo del raiz en la rama del mejor nodo
    */
-  Tablero& getNextBestMove(const ArbolGeneral<Tablero>& t, int deep = 4, int currentDeep = 0);
+  Tablero& getNextBestMove(ArbolGeneral<Tablero>& t, int currentDeep = 0);
 };
 
 

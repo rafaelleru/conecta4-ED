@@ -45,48 +45,31 @@ void printTableo(Tablero &t){
  * @return : Identificador (int) del jugador que gana la partida (1 o 2).
  */
 int jugar_partida() {
+  Tablero tablero(4,4);      //Tablero 5x7
+  Mando mando(tablero);       //Mando para controlar E/S de tablero
+  JugadorAuto uno(1, 5);
+  JugadorAuto dos(2, 5);    
+  int i = 0;
+  int quienGana = 0;
 
-  Tablero tablero(3, 3);      //Tablero 5x7
-    Mando mando(tablero);       //Mando para controlar E/S de tablero
+  while(quienGana == 0){
+    ArbolGeneral<Tablero> states(tablero);
+    if(i%2 == 0){
+      tablero = uno.getNextBestMove(states);
+      cout << tablero;
+    }else{
+      cout << "Juega 2" << endl;
+      tablero = dos.getNextBestMove(states);
+    }
 
-    JugadorAuto dos(2, 3);    
-    int i = 0;
-    int quienGana = 0;
-
-    //while(quienGana == 0){
-    //if(i%2 == 0){ //Juega 1
-
-
-    // ArbolGeneral<Tablero>::preorden_iterador it = t.beginpreorden();
-
-    // for(it; it != t.endpreorden(); ++it){
-    //   cout << *it;
-    // }
-    //n = uno.getNextBestMove(states, 2, 0);
-	///}else{
-	//    	n = dos.getNextBestMove(states, 2, 0);
-     //  }
-    //   cout << "main" << endl;
-    //   //conecta.actualizarEstado(n);
-    //   //      system("clear");
-    //   //mando.actualizarJuego(c, tablero);  // actualiza tablero según comando c 
-    //   //imprimeTablero(n, mando);     // muestra tablero y mando en pantalla
-    //   cout << n;
-    //   quienGana = n.quienGana();    // hay ganador?
-    // }
-
-    return tablero.quienGana();
+    ++i;
+    quienGana = tablero.quienGana();
+  }
+  return tablero.quienGana();
 }
 
 int main(int argc, char *argv[]){
-  JugadorAuto uno(1, 3);
-  Tablero n(3, 3);
-  ArbolGeneral<Tablero> t(n);
-  ArbolGeneral<Tablero>::Nodo li = t.raiz();
-  uno.generaArbolEstados(t, 0, li);
-  //ArbolGeneral<Tablero> imprimir(t);
-  cout << t;
-  cout << "el numero de estados es: " <<t.size() << endl;
+
   int ganador = jugar_partida();
   cout << "Ha ganado el jugador " << ganador << endl;
 }  
