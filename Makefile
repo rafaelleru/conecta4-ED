@@ -17,7 +17,7 @@ documentacion:
 	doxygen doc/doxys/Doxyfile
 
 # ************ Compilación de módulos ************
-$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a $(OBJ)/Conecta4.o
+$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a
 	$(CXX) -o $(BIN)/arboltablero_test $(OBJ)/arboltablero_test.o -I$(INC) -L$(LIB) -ltablero
 
 $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
@@ -43,10 +43,10 @@ $(OBJ)/mando.o: $(SRC)/mando.cpp $(INC)/mando.h $(INC)/tablero.h
 
 #******************** Añadido por nosotros ********************
 $(BIN)/mipartida: $(OBJ)/mipartida.o $(LIB)/libtablero.a $(LIB)/libmando.a
-	$(CXX) -o $(BIN)/mipartida $(OBJ)/mipartida.o $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC) -L$(LIB) -ltablero -lmando
+	$(CXX) -o $(BIN)/mipartida $(OBJ)/mipartida.o $(OBJ)/JugadorAuto.o -I$(INC) -L$(LIB) -ltablero -lmando
 
 $(OBJ)/mipartida.o: $(SRC)/mi_partida.cpp $(OBJ)/JugadorAuto.o
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/Conecta4.o $(OBJ)/JugadorAuto.o -I$(INC)
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mipartida.o $(SRC)/mi_partida.cpp $(OBJ)/JugadorAuto.o -I$(INC)
 
 $(OBJ)/Conecta4.o: $(SRC)/Conecta4.cpp
 	echo "Creando Conecta4.o"

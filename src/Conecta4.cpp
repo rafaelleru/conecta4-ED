@@ -16,12 +16,12 @@ Conecta4::Conecta4(int prof, Tablero& tablero){
   this->states.AsignaRaiz(tablero);
   ArbolGeneral<Tablero>::Nodo n = this->states.raiz();
   this->tope = prof;
-  generaArbolEstados(prof, 0, n);
+  generaArbolEstados(0, n);
 }
 
-void Conecta4::generaArbolEstados(int prof, int currentProf, ArbolGeneral<Tablero>::Nodo& n){
+void Conecta4::generaArbolEstados(int currentProf, ArbolGeneral<Tablero>::Nodo& n){
 
-  if(currentProf != prof){
+  if(currentProf != this->tope){
     int col = n->etiqueta.GetColumnas();
     ArbolGeneral<Tablero>::Nodo ultimoinsertado;
 

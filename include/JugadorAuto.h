@@ -17,8 +17,9 @@ class JugadorAuto{
    *  \return punt int el valor obtenido por dicho nodo en base a nuestra heuristica.
    */
   int evaluaTablero(Tablero& n);
- public:
 
+ public:
+  ArbolGeneral<Tablero>& generaArbolEstados(ArbolGeneral<Tablero>& n, int cd, ArbolGeneral<Tablero>::Nodo& li);
   /**
    *  \brief constructor de jugador, se le pasa el turno y
    *  opcinalmente la profundidad maxima de exploracion que realizara
