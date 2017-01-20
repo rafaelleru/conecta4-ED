@@ -45,26 +45,24 @@ void printTableo(Tablero &t){
  * @return : Identificador (int) del jugador que gana la partida (1 o 2).
  */
 int jugar_partida() {
-  Tablero tablero(4,4);      //Tablero 5x7
+  Tablero tablero(3,3);      //Tablero 5x7
   Mando mando(tablero);       //Mando para controlar E/S de tablero
-  JugadorAuto uno(1, 5);
-  JugadorAuto dos(2, 5);    
+  JugadorAuto uno(1, 2);
+  JugadorAuto dos(2, 2);    
   int i = 0;
   int quienGana = 0;
 
-  while(quienGana == 0){
-    ArbolGeneral<Tablero> states(tablero);
-    if(i%2 == 0){
-      tablero = uno.getNextBestMove(states);
-      cout << tablero;
-    }else{
-      cout << "Juega 2" << endl;
-      tablero = dos.getNextBestMove(states);
-    }
+  // while(quienGana == 0){
+  ArbolGeneral<Tablero> states(tablero);
+  //   if(i%2 == 0){
+    tablero = uno.getNextBestMove(states);
+  //   }else{
+  //     tablero = dos.getNextBestMove(states);
+  //   }
 
-    ++i;
-    quienGana = tablero.quienGana();
-  }
+  //   ++i;
+  //   quienGana = tablero.quienGana();
+  // }
   return tablero.quienGana();
 }
 
