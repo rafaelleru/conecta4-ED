@@ -28,41 +28,35 @@ void imprimeTablero(Tablero & t, Mando & m){
     cout << m.GetMando() << endl;
 }
 
-void printTableo(Tablero &t){
-  vector<vector<int> >casillas = t.GetTablero();
-  for (int i; i < casillas.size(); ++i) {
-    for (int j; j < casillas[i].size(); ++j) {
-      cout << casillas[i][j] << " ";
-    }
-    cout << endl;
-  }
-    
-  }
-
 /******************************************************************************/
 /**
  * @brief Implementa el desarrollo de una partida de Conecta 4 sobre un tablero 5x7, pidiendo por teclado los movimientos de ambos jugadores según turno.
  * @return : Identificador (int) del jugador que gana la partida (1 o 2).
  */
 int jugar_partida() {
-  Tablero tablero(3,3);      //Tablero 5x7
+  Tablero tablero(4, 4);      //Tablero 5x7
   Mando mando(tablero);       //Mando para controlar E/S de tablero
-  JugadorAuto uno(1, 2);
-  JugadorAuto dos(2, 2);    
+  JugadorAuto uno(1, 1);
+  JugadorAuto dos(2, 1);    
   int i = 0;
   int quienGana = 0;
+  char h;
+  tablero.cambiarTurno();
+  while(quienGana == 0){
+    tablero.cambiarTurno();
+    ArbolGeneral<Tablero> states(tablero);
+    if(i%2 == 0){
+      tablero = uno.getNextBestMove(states);
+    }else{
+      tablero = dos.getNextBestMove(states);
+    }
 
-  // while(quienGana == 0){
-  ArbolGeneral<Tablero> states(tablero);
-  //   if(i%2 == 0){
-    tablero = uno.getNextBestMove(states);
-  //   }else{
-  //     tablero = dos.getNextBestMove(states);
-  //   }
-
-  //   ++i;
-  //   quienGana = tablero.quienGana();
-  // }
+    cout << "Juego: " << endl;
+    cout << tablero;
+    cin >> h;
+    ++i;
+    quienGana = tablero.quienGana();
+  }
   return tablero.quienGana();
 }
 
