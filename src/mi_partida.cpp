@@ -7,11 +7,11 @@
 #include <termio.h>     // Linux/Windows users
 //#include <termios.h>    // Mac OSX users
 
-#include "ArbolGeneral.h"
-#include "tablero.h"
-#include "mando.h"
-#include "Conecta4.h"
-#include "JugadorAuto.h"
+#include "../include/ArbolGeneral.h"
+#include "../include/tablero.h"
+#include "../include/mando.h"
+#include "../include/Conecta4.h"
+#include "../include/JugadorAuto.h"
 
 using namespace std;
 
@@ -89,52 +89,35 @@ int humano_vs_player(int f, int c, int turno){
   int quienGana = 0;
   int i = 0;
   Mando mando(t);       //Mando para controlar E/S de tablero
-  cout << "antes de los while" << endl;
+  char ficha;
+  bool jugado = true;
+
   if(turno == 1){
-    cout << "Juega primero el brother the human" << endl;
-    JugadorAuto ja(2, 7);
+    ficha = 'b';
     while(quienGana == 0){
-      ArbolGeneral<Tablero> states(t);
-      if(i%2 == 0){
-	c = getch();       // Capturamos la tecla pulsada.
-	cout << "La tecla es: " << c << endl;
-	while(t.GetTurno() == 1 && quienGana == 0) {
-	  //system("clear");
-	  mando.actualizarJuego(c, t);  // actualiza tablero según comando c 
-	  imprimeTablero(t, mando);     // muestra tablero y mando en pantalla
-	  quienGana = t.quienGana();    // hay ganador?
-	}
-	++i;
-      }else{
-	cout << "Juego yo que soy la polla" << endl;
+      if(jugado){
+	JugadorAuto ja(turno, 7);
+	ArbolGeneral<Tablero> states(t);
 	t = ja.getNextBestMove(states);
-	//system("clear");
+	t.cambiarTurno();
 	cout << t;
-	quienGana = t.quienGana();
-	++i;
-      }//else
-    }//while
-  }else{ //Turno 2
-    JugadorAuto ja(1, 7);
-    while(quienGana == 0){
-      ArbolGeneral<Tablero> states(t);
-      if(i%2 == 0){//juega jugador automatico
-	t = ja.getNextBestMove(states);
-	cout << t;
-	quienGana = t.quienGana();
+	jugado = false;
       }else{
-	c = getch();       // Capturamos la tecla pulsada.    
-	if(c != Mando::KB_ESCAPE && quienGana == 0) {
-	  //system("clear");
-	  mando.actualizarJuego(c, t);  // actualiza tablero según comando c 
-	  imprimeTablero(t, mando);     // muestra tablero y mando en pantalla
+	while(c != Mando::KB_SPACE && !jugado) {
+	  ficha = getch();
+	  mando.actualizarJuego(ficha, t);  // actualiza tablero según comando c 
+	  cout << t;
 	  quienGana = t.quienGana();    // hay ganador?
+	  if(ficha == Mando::KB_SPACE){
+	    jugado = true;
+	  }
 	}
       }
-      ++i;
+
+      quienGana = t.quienGana();
     }
   }
-
+  
   return quienGana;
   
 }

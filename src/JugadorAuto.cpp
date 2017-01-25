@@ -1,4 +1,5 @@
-#include "JugadorAuto.h"
+#include "../include/ArbolGeneral.h"
+#include "../include/JugadorAuto.h"
 #include <vector>
 
 using namespace std;
@@ -54,7 +55,6 @@ Tablero& JugadorAuto::getNextBestMove(ArbolGeneral<Tablero>& t, int currentDeep)
   ArbolGeneral<Tablero>::preorden_iterador superpadre(t.raiz());
   int mejor_valoracion = 0, val = 0;
 
-  system("clear");
   for (it; it != end; ++it) {
     val = evaluaTablero(*it);
 
@@ -76,6 +76,7 @@ Tablero& JugadorAuto::getNextBestMove(ArbolGeneral<Tablero>& t, int currentDeep)
 //Declaramos los metodos que evaluan las coincidencias en el tablero
 int cuenta3Hor(const Tablero &tablero, int player);
 int cuenta2Hor(const Tablero &tablero, int player);
+int cuenta2Vert(const Tablero &tablero, int player);
 int cuenta3Vert(const Tablero &tablero, int player);
 int cuenta2Diag(const Tablero &tablero, int player);
 int cuenta3Diag(const Tablero &tablero, int player);
@@ -86,8 +87,8 @@ int JugadorAuto::evaluaTablero(Tablero& n){
 
   if(this->turno == 1){
     int t = 1;
-    ndosesmios= cuenta2Hor(n, t) + cuenta2Hor(n, t);
-    ndosesoponente = cuenta2Hor(n, t+1) + cuenta2Hor(n, t+1);
+    ndosesmios = cuenta3Hor(n, t) + cuenta3Vert(n,t) + cuenta3Diag(n, t) + cuenta2Hor(n, t) + cuenta2Vert(n, t) + cuenta2Diag(n, t);
+    ndosesoponente = cuenta3Hor(n, t+1) + cuenta3Vert(n,t+1) + cuenta3Diag(n, t+1) + cuenta2Hor(n, t+1) + cuenta2Vert(n, t+1) + cuenta2Diag(n, t+1);
   }else{
     int t = 2;
     ndosesmios=cuenta2Hor(n, t) + cuenta2Hor(n, t);
